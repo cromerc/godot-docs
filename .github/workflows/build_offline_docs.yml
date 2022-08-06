@@ -12,8 +12,7 @@ jobs:
     strategy:
       matrix:
         branch:
-          - master
-          - stable
+          - 3.5
     steps:
       - name: Checkout
         uses: actions/checkout@v3
