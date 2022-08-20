@@ -6,7 +6,7 @@ Your first 3D shader
 You have decided to start writing your own custom Spatial shader. Maybe you saw
 a cool trick online that was done with shaders, or you have found that the
 :ref:`StandardMaterial3D <class_StandardMaterial3D>` isn't quite meeting your
-needs. Either way, you have decided to write your own and now you need figure
+needs. Either way, you have decided to write your own and now you need to figure
 out where to start.
 
 This tutorial will explain how to write a Spatial shader and will cover more
@@ -179,9 +179,9 @@ If you open it up, you'll see a section called "noise".
 
 Click beside it where it says "[empty]" and select "New NoiseTexture". Then in
 your NoiseTexture click beside where it says "Noise" and select "New
-OpenSimplexNoise".
+NoiseTexture".
 
-.. note:: :ref:`OpenSimplexNoise <class_opensimplexnoise>` is used by the NoiseTexture to
+.. note:: :ref:`FastNoiseLite <class_fastnoiselite>` is used by the NoiseTexture to
           generate a heightmap.
 
 Once you set it up and should look like this.
@@ -305,7 +305,7 @@ do that by passing in a second noise texture.
   uniform sampler2D normalmap;
 
 Set this second uniform texture to another NoiseTexture with another
-OpenSimplexNoise. But this time, check **As Normalmap**.
+FastNoiseLite. But this time, check **As Normalmap**.
 
 .. image:: img/normal-set.png
 
