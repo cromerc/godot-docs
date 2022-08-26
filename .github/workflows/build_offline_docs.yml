@@ -32,7 +32,7 @@ jobs:
       # Build the HTML to upload it.
       - name: Sphinx build
         run: |
-          sphinx-build --color -d _build/doctrees . _build/html
+          READTHEDOCS=True sphinx-build --color -d _build/doctrees . _build/html -E
 
       - uses: actions/upload-artifact@v3
         with:
