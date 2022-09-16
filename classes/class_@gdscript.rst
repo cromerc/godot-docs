@@ -397,7 +397,7 @@ See also :ref:`@GlobalScope.PROPERTY_HINT_PLACEHOLDER_TEXT<class_@GlobalScope_co
 
 Export a numeric property as a range value. The range must be defined by ``min`` and ``max``, as well as an optional ``step`` and a variety of extra hints. The ``step`` defaults to ``1`` for integer properties. For floating-point numbers this value depends on your ``EditorSettings.interface/inspector/default_float_step`` setting.
 
-If hints ``"or_greater"`` and ``"or_lesser"`` are provided, the editor widget will not cap the value at range boundaries. The ``"exp"`` hint will make the edited values on range to change exponentially. The ``"no_slider"`` hint will hide the slider element of the editor widget.
+If hints ``"or_greater"`` and ``"or_less"`` are provided, the editor widget will not cap the value at range boundaries. The ``"exp"`` hint will make the edited values on range to change exponentially. The ``"no_slider"`` hint will hide the slider element of the editor widget.
 
 Hints also allow to indicate the units for the edited value. Using ``"radians"`` you can specify that the actual value is in radians, but should be displayed in degrees in the Inspector dock. ``"degrees"`` allows to add a degree sign as a unit suffix. Finally, a custom suffix can be provided using ``"suffix:unit"``, where "unit" can be any string.
 
@@ -410,7 +410,7 @@ See also :ref:`@GlobalScope.PROPERTY_HINT_RANGE<class_@GlobalScope_constant_PROP
     @export_range(-10, 20, 0.2) var number: float
     
     @export_range(0, 100, 1, "or_greater") var power_percent
-    @export_range(0, 100, 1, "or_greater", "or_lesser") var health_delta
+    @export_range(0, 100, 1, "or_greater", "or_less") var health_delta
     
     @export_range(-3.14, 3.14, 0.001, "radians") var angle_radians
     @export_range(0, 360, 1, "degrees") var angle_degrees
@@ -536,7 +536,7 @@ Asserts that the ``condition`` is ``true``. If the ``condition`` is ``false``, a
 
 \ **Note:** For performance reasons, the code inside :ref:`assert<class_@GDScript_method_assert>` is only executed in debug builds or when running the project from the editor. Don't include code that has side effects in an :ref:`assert<class_@GDScript_method_assert>` call. Otherwise, the project will behave differently when exported in release mode.
 
-The optional ``message`` argument, if given, is shown in addition to the generic "Assertion failed" message. You can use this to provide additional details about why the assertion failed.
+The optional ``message`` argument, if given, is shown in addition to the generic "Assertion failed" message. It must be a static string, so format strings can't be used. You can use this to provide additional details about why the assertion failed.
 
 ::
 
@@ -545,7 +545,7 @@ The optional ``message`` argument, if given, is shown in addition to the generic
     assert(speed < 20) # True, the program will continue
     assert(speed >= 0) # False, the program will stop
     assert(speed >= 0 and speed < 20) # You can also combine the two conditional statements in one check
-    assert(speed < 20, "speed = %f, but the speed limit is 20" % speed) # Show a message with clarifying details
+    assert(speed < 20, "the speed limit is 20") # Show a message
 
 ----
 
