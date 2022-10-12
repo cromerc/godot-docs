@@ -141,14 +141,14 @@ Changing current scene
 
 After a scene is loaded, you may want to change this scene for
 another one. One way to do this is to use the
-:ref:`SceneTree.change_scene() <class_SceneTree_method_change_scene>`
+:ref:`SceneTree.change_scene_to_file() <class_SceneTree_method_change_scene_to_file>`
 function:
 
 .. tabs::
  .. code-tab:: gdscript GDScript
 
     func _my_level_was_completed():
-        get_tree().change_scene("res://levels/level2.tscn")
+        get_tree().change_scene_to_file("res://levels/level2.tscn")
 
  .. code-tab:: csharp
 
@@ -160,7 +160,7 @@ function:
 Rather than using file paths, one can also use ready-made
 :ref:`PackedScene <class_PackedScene>` resources using the equivalent
 function
-:ref:`SceneTree.change_scene_to(PackedScene scene) <class_SceneTree_method_change_scene_to>`:
+:ref:`SceneTree.change_scene_to_packed(PackedScene scene) <class_SceneTree_method_change_scene_to_packed>`:
 
 .. tabs::
  .. code-tab:: gdscript GDScript
@@ -168,7 +168,7 @@ function
     var next_scene = preload("res://levels/level2.tscn")
 
     func _my_level_was_completed():
-    	get_tree().change_scene_to(next_scene)
+    	get_tree().change_scene_to_packed(next_scene)
 
  .. code-tab:: csharp
 
@@ -181,6 +181,6 @@ function
 These are quick and useful ways to switch scenes but have the drawback
 that the game will stall until the new scene is loaded and running. At
 some point in the development of your game, it may be preferable to create proper loading
-screens with progress bar, animated indicators or thread (background)
-loading. This must be done manually using autoloads (see next chapter)
+screens with progress bar, animated indicators or threaded (background)
+loading. This must be done manually using :ref:`doc_singletons_autoload`
 and :ref:`doc_background_loading`.
