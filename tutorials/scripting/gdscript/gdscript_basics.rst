@@ -561,8 +561,8 @@ in a 3D grid.
 3D Plane type in normalized form that contains a ``normal`` vector field
 and a ``d`` scalar distance.
 
-:ref:`Quat <class_Quat>`
-^^^^^^^^^^^^^^^^^^^^^^^^
+:ref:`Quaternion <class_Quaternion>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Quaternion is a datatype used for representing a 3D rotation. It's
 useful for interpolating rotations.
@@ -1210,7 +1210,7 @@ There are 6 pattern types:
     Matches the contents of a variable/enum::
 
         match typeof(x):
-            TYPE_REAL:
+            TYPE_FLOAT:
                 print("float")
             TYPE_STRING:
                 print("text")
@@ -1538,13 +1538,13 @@ Exports
 
     Documentation about exports has been moved to :ref:`doc_gdscript_exports`.
 
-.. _doc_gdscript_tool_mode:
 
+.. _doc_gdscript_basics_setters_getters:
 
-Properties
-~~~~~~~~~~
+Properties (setters and getters)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Sometimes you want a class' member variable to do more than just hold data and actually perform
+Sometimes, you want a class' member variable to do more than just hold data and actually perform
 some validation or computation whenever its value change. It may also be desired to
 encapsulate its access in some way.
 
@@ -1588,6 +1588,8 @@ you can use a different notation to use existing class functions::
         get = get_my_prop, set = set_my_prop
 
 This can also be done in the same line.
+
+.. _doc_gdscript_tool_mode:
 
 Tool mode
 ~~~~~~~~~
@@ -1686,7 +1688,7 @@ to. To create custom signals for a class, use the ``signal`` keyword.
    Game Programming Patterns ebook.
 
 You can connect these signals to methods the same way you connect built-in
-signals of nodes like :ref:`class_Button` or :ref:`class_RigidBody`.
+signals of nodes like :ref:`class_Button` or :ref:`class_RigidBody3D`.
 
 In the example below, we connect the ``health_depleted`` signal from a
 ``Character`` node to a ``Game`` node. When the ``Character`` node emits the
